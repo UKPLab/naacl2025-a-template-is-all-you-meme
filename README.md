@@ -20,7 +20,7 @@ Don't hesitate to send us an e-mail or report an issue, if something is broken (
 * `tlc.py` -- Template-Label Counter
 * `main.py` -- for running TLC
 * `memetils.py` -- util code
-* `scriptorinos/` -- eda and scraping scripts
+* `scraping/` -- scraping scripts
 
 ## Requirements
 Install [clip first](https://github.com/openai/CLIP).
