@@ -47,47 +47,109 @@ pip install --upgrade pip
 pip install -r requirements.txt
 ```
 ### Reproduce our results: TSplit
+## Overview  
+The `finetune_clip.py` script fine-tunes OpenAI’s CLIP model on various datasets from the paper. You can specify multiple configurations using command-line arguments.  
+
+## Usage  
+Run the script with:  
+
+```
+python finetune_clip.py --dataset <dataset> --feature_extraction <encoder> --epochs <num_epochs> ...
+```
+
 You can finetune CLIP with `python finetune_clip.py`. You can specifiy which configurations by passing arguments to python.
-```
---dataset #which dataset from the paper you want to play with
---data_root #where the datafiles are. only relevant for figmemes, mami, and multioff, which you should pass data/annotations, data/MAMI_DATASET, and data/MultiOFF_DATASET respectively
---split #only relevant for figmemes, mami, and multioff, which you should pass standard, task5_style, and standard respectively
---feature_extraction #which encoder? We used ViT-L/14@336px, ViT-B/32, or ViT-B/16
---task #only relevant for Memotion 3 and MAMI 1 = A, 2 = B
---reorganize #original for the original splits, baseline for random downsampling, max for TSplit_max, mean for TSplit_mean, median for TSplit_median, quantile for TSplit_percentile
---batch_size # We used 16
---epochs #fine-tuning epochs. we used 20
---seed # random seed for modelling/sampling. we use 0-4
---sample_train #Downsample TSplit/CLIP Baseline (Table 3) (True or False)
---random_downsample_tsplit #randomly downsample after TSplitting entire dataset (Table 9) (True or False)
---sample_tsplit #TSplit downsampling on entire dataset (Table 9) (True or False)
---overfit #skip model selection and just do test eval on the model fine-tuned for args.epochs (20) epochs. (Table 6) (True or False)
-If the preceding 4 arguments are all False, you will TSplit the entire dataset (Table 4)
-```
+## Arguments  
+You can customize the fine-tuning process with the following arguments:  
+
+### **Required Arguments:**  
+- `--dataset`  
+  - The dataset to use from the paper.  
+- `--feature_extraction`  
+  - Which encoder to use?  
+  - **Options**: `ViT-L/14@336px`, `ViT-B/32`, `ViT-B/16`.  
+
+### **Optional Arguments:**  
+- `--data_root`  
+  - Location of dataset files.  
+  - **Required for**: `figmemes`, `mami`, `multioff`.  
+  - **Paths**:  
+    - `data/annotations` (for `figmemes`)  
+    - `data/MAMI_DATASET` (for `mami`)  
+    - `data/MultiOFF_DATASET` (for `multioff`)  
+
+- `--split`  
+  - Dataset split strategy.  
+  - **Required for**: `figmemes`, `mami`, `multioff`.  
+  - **Options**:  
+    - `standard`, `task5_style` (for `mami`), `standard` (for `multioff`).  
+
+- `--task`  
+  - Task specification (for `Memotion 3` and `MAMI`).  
+  - **Options**: `1 = A`, `2 = B`.  
+
+- `--reorganize`  
+  - How to split and downsample the dataset.  
+  - **Options**:  
+    - `original` (original splits)  
+    - `baseline` (random downsampling)  
+    - `max`, `mean`, `median`, `quantile` (for TSplit variations).  
+
+- `--batch_size` (default: `16`)  
+  - Batch size for fine-tuning.  
+
+- `--epochs` (default: `20`)  
+  - Number of epochs for fine-tuning.  
+
+- `--seed` (default: `0-4`)  
+  - Random seed for modeling/sampling.  
+
+- `--sample_train`, `--random_downsample_tsplit`, `--sample_tsplit`, `--overfit` (default: `False`)  
+  - Various options for downsampling or skipping model selection.  
+  - **Table References:**  
+    - `sample_train` → Table 3  
+    - `random_downsample_tsplit` → Table 9  
+    - `sample_tsplit` → Table 9  
+    - `overfit` (Test eval on model trained for `epochs` without selection) → Table 6  
+
+If **all four** of these arguments are `False`, the script will TSplit the entire dataset (Table 4).  
+
 ### TSplit expected results
 Results will be written to disk in a json file following this structure:
 ```
 clip_results/{args.overfit}/{args.sample_train}/{args.random_downsample_tsplit}/{args.sample_tsplit}/{args.dataset}/{args.reorganize}/{args.feature}/{args.task}/{args.seed}/
 ```
 ### Reproduce our results: TLC
+### Reproduce our results: TLC  
 
-You can run TLC with `python main.py`. You can specifiy which configurations by passing arguments to python.
+You can run TLC by passing arguments to pythonwith:  
 ```
---template_path #directory where the KYMKB is located
---dataset #which dataset from the paper you want to play with
---data_root #where the datafiles are. only relevant for figmemes, mami, and multioff, which you should pass data/annotations, data/MAMI_DATASET, and data/MultiOFF_DATASET respectively
---num_neigh #how many neighbors are we talking about
---vote_type #template vs label vote
---split #only relevant for figmemes, mami, and multioff, which you should pass standard, task5_style, and standard respectively
---include_examples #template or templates+examples? True or False, respectively
---feature_extraction #which encoder? ViT-L/14@336px, ViT-B/32, or ViT-B/16
---task #only relevant for Memotion 3 and MAMI 1 = A, 2 = B
---combine #how to model the modalities, None (just template vs memes), concatenate, fusion, latefusion, or fancy (normalize then average)
---just_text #use just about vs OCR? True or False
---need_to_read #use our embeddings or not? True or False
+python main.py
+--template_path  # Directory where the KYMKB is located  
+--dataset        # Which dataset from the paper you want to play with  
+--data_root      # Where the datafiles are located.  
+                 # Required for figmemes, mami, and multioff  
+                 # Paths:  
+                 # - data/annotations (for figmemes)  
+                 # - data/MAMI_DATASET (for mami)  
+                 # - data/MultiOFF_DATASET (for multioff)  
+--num_neigh      # Number of neighbors to consider  
+--vote_type      # Template vs label vote  
+--split          # Only relevant for figmemes, mami, and multioff  
+                 # Values: standard, task5_style (for mami), standard (for multioff)  
+--include_examples  # Template or templates + examples?  
+                    # True (template only) or False (template + examples)  
+--feature_extraction  # Which encoder to use?  
+                      # Options: ViT-L/14@336px, ViT-B/32, ViT-B/16  
+--task           # Only relevant for Memotion 3 and MAMI  
+                 # Options: 1 = A, 2 = B  
+--combine        # How to model the modalities  
+                 # Options: None (template vs memes), concatenate, fusion,  
+                 # latefusion, fancy (normalize then average)  
+--just_text      # Use just about vs OCR?  
+                 # True or False  
+--need_to_read   # Use pre-written embeddings or not?  
+                 # True or False  
 ```
-
-
 ### TLC Expected results
 Once finished, results will be printed out.
 
