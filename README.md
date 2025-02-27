@@ -119,7 +119,6 @@ Results will be written to disk in a json file following this structure:
 clip_results/{args.overfit}/{args.sample_train}/{args.random_downsample_tsplit}/{args.sample_tsplit}/{args.dataset}/{args.reorganize}/{args.feature}/{args.task}/{args.seed}/
 ```
 ### Reproduce our results: TLC
-### Reproduce our results: TLC  
 
 You can run TLC by passing arguments to pythonwith:  
 ```
