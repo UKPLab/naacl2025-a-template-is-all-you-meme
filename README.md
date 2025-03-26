@@ -56,8 +56,6 @@ Run the script with:
 ```
 python finetune_clip.py --dataset <dataset> --feature_extraction <encoder> --epochs <num_epochs> ...
 ```
-
-You can finetune CLIP with `python finetune_clip.py`. You can specifiy which configurations by passing arguments to python.
 ## Arguments  
 You can customize the fine-tuning process with the following arguments:  
 
@@ -107,19 +105,19 @@ You can customize the fine-tuning process with the following arguments:
 - `--sample_train`, `--random_downsample_tsplit`, `--sample_tsplit`, `--overfit` (default: `False`)  
   - Various options for downsampling or skipping model selection.  
   - **Table References:**  
-    - `sample_train` → Table 3  
-    - `random_downsample_tsplit` → Table 9  
-    - `sample_tsplit` → Table 9  
-    - `overfit` (Test eval on model trained for `epochs` without selection) → Table 6  
+    - `sample_train` → Table 3 from page 7
+    - `random_downsample_tsplit` → Table 9 on page 16 (the first grouping)
+    - `sample_tsplit` → Table 9 on page 16 (the second grouping)  
+    - `overfit` (Test eval on model trained for `epochs` without selection) → Table 6 on page 15 
 
-If **all four** of these arguments are `False`, the script will TSplit the entire dataset (Table 4).  
+If **all four** of these arguments are `False`, the script will TSplit the entire dataset (Table 4 on page 8).  
 
 ### TSplit expected results
 Results will be written to disk in a json file following this structure:
 ```
 clip_results/{args.overfit}/{args.sample_train}/{args.random_downsample_tsplit}/{args.sample_tsplit}/{args.dataset}/{args.reorganize}/{args.feature}/{args.task}/{args.seed}/
 ```
-### Reproduce our results: TLC
+### Reproduce our results: TLC starting on page 16
 
 You can run TLC by passing arguments to python with:  
 ```
