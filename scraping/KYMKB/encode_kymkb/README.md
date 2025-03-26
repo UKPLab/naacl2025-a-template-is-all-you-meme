@@ -1,5 +1,5 @@
 # KYMKB Encoder
-
+#### Disclaimer: Our work should only ever be used for academic purposes.
 The KYMKB Encoder extracts and encodes image features from meme templates and example images stored in the KYMKB. The extracted features can be used for various downstream tasks, such as meme classification or retrieval.
 
 ## Features
