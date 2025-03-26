@@ -1,5 +1,5 @@
 # KYMKB scraper
-
+#### Disclaimer: Our work should only ever be used for academic purposes.
 ## Overview
 This script scrapes meme data from wayback machine. It downloads metadata, images, and textual information, organizing them into a structured format for easy access.
 
