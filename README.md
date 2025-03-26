@@ -63,7 +63,8 @@ You can customize the fine-tuning process with the following arguments:
 
 ### **Required Arguments:**  
 - `--dataset`  
-  - The dataset to use from the paper.  
+  - The dataset to use from the paper.
+  -  - **Options**: `multioff`, `memotion3`, `figmemes`, `mami`.  
 - `--feature_extraction`  
   - Which encoder to use?  
   - **Options**: `ViT-L/14@336px`, `ViT-B/32`, `ViT-B/16`.  
