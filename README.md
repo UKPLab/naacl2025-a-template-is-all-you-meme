@@ -120,7 +120,7 @@ clip_results/{args.overfit}/{args.sample_train}/{args.random_downsample_tsplit}/
 ```
 ### Reproduce our results: TLC
 
-You can run TLC by passing arguments to pythonwith:  
+You can run TLC by passing arguments to python with:  
 ```
 python main.py
 --template_path  # Directory where the KYMKB is located  
