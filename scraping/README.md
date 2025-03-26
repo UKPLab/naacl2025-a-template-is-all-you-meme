@@ -1,5 +1,5 @@
 # Use Our Scraping Code to Make Your Own KYMKB!
-
+#### Disclaimer: Our work should only ever be used for academic purposes.
 ### Step 1: Install Dependencies
 
 Make sure you have installed the environment, particularly **BeautifulSoup** and **Selenium**.
