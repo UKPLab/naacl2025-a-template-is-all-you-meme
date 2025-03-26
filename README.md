@@ -28,7 +28,6 @@ Install [clip first](https://github.com/openai/CLIP).
 Then, please use the `requirements.txt` file. 
 
 ## KYMKB / Data / Embeddings
-#### Disclaimer: Our work should only ever be used for academic purposes.
 [Our data files](https://knowyourmeme.com/memes/chonk-oh-lawd-he-comin) are some [chonky bois](https://knowyourmeme.com/memes/big-chungus)
 
 Please see our scraping code for creating your own KYMKB!
