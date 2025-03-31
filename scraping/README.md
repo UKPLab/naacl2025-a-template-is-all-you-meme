@@ -2,7 +2,7 @@
 #### Disclaimer: Our work should only ever be used for academic purposes.
 ### Step 1: Install Dependencies
 
-Make sure you have installed the environment, particularly **BeautifulSoup** and **Selenium**.
+See the installation section here: https://github.com/UKPLab/naacl2025-a-template-is-all-you-meme
 
 ### Step 2: Run `downloader.ipynb`
 
