@@ -45,7 +45,7 @@ pip install --upgrade pip
 #install clip here please
 pip install -r requirements.txt
 ```
-### Reproduce our results: TSplit
+# Reproduce our results: TSplit
 ## Overview  
 The `finetune_clip.py` script fine-tunes OpenAI’s CLIP model on various datasets from the paper. You can specify multiple configurations using command-line arguments.  
 
