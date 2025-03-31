@@ -1,6 +1,6 @@
 # A Template Is All You Meme
 #### Disclaimer: Our work should only ever be used for academic purposes.
-Source code and data for [A Template Is All You Meme](https://arxiv.org/abs/2311.06649).
+Source code and data for [A Template Is All You Meme](https://arxiv.org/abs/2311.06649), including scraping for Wayback Machine, and experimental code for TSplit and TLC.
 
 Contact person: [Luke Bates](luke.bates@tu-darmstadt.de)
 
