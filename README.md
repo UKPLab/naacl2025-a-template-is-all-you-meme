@@ -153,13 +153,22 @@ Once finished, results will be printed out.
 ### Citation
 If our work was helpful for your work, please be so kind as to cite us:
 ```
-@article{atiaym_2023,
-url = {https://arxiv.org/abs/2311.06649},
-author = {Luke Bates and Peter Ebert Christensen and Preslav Nakov and Iryna Gurevych},
-keywords = {Computation and Language (cs.CL), FOS: Computer and information sciences, FOS: Computer and information sciences},
-journal={arXiv preprint arXiv:2311.06649},
-title = {A Template Is All You Meme},
-publisher = {arXiv},
-year = {2023},
+@inproceedings{bates-etal-2025-template,
+    title = "A Template Is All You Meme",
+    author = "Bates, Luke  and
+      Christensen, Peter Ebert  and
+      Nakov, Preslav  and
+      Gurevych, Iryna",
+    editor = "Chiruzzo, Luis  and
+      Ritter, Alan  and
+      Wang, Lu",
+    booktitle = "Proceedings of the 2025 Conference of the Nations of the Americas Chapter of the Association for Computational Linguistics: Human Language Technologies (Volume 1: Long Papers)",
+    month = apr,
+    year = "2025",
+    address = "Albuquerque, New Mexico",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2025.naacl-long.525/",
+    pages = "10443--10475",
+    ISBN = "979-8-89176-189-6"
 }
 ```
